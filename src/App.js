@@ -1,23 +1,89 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import DateTime from "./Components/DateTime";
+import ShowLink from "./Components/ShowLink";
+import TextEditor from "./Components/TextEditor";
+import DataUpload from "./Components/DataUpload";
+import Welcome from "./Components/Welcome";
+import End from "./Components/End";
 
 function App() {
+  const [disp, setDisp] = useState({
+    welcome: true,
+    showlink: false,
+    imageUpload: false,
+    audioUpload: false,
+    texteditor: false,
+    datetime: false,
+    end: false,
+  });
+
+  function callback(data, curr, next) {
+    setDisp((prev) => {
+      let temp = {};
+      temp[curr] = false;
+      temp[next] = true;
+      return {
+        ...prev,
+        ...temp,
+      };
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <Welcome
+        style={!disp.welcome ? { display: "none" } : null}
+        alert={callback}
+        next="showlink"
+        curr="welcome"
+      />
+      <ShowLink
+        style={!disp.showlink ? { display: "none" } : null}
+        alert={callback}
+        next="imageUpload"
+        curr="showlink"
+      />
+      <DataUpload
+        style={!disp.imageUpload ? { display: "none" } : null}
+        name="imageUpload"
+        accept="image"
+        multi={true}
+        height="11.8rem"
+        alert={callback}
+        next="audioUpload"
+        curr="imageUpload"
+      />
+      <DataUpload
+        style={!disp.audioUpload ? { display: "none" } : null}
+        name="audioUpload"
+        accept="audio"
+        multi={false}
+        height="2.5rem"
+        alert={callback}
+        next="texteditor"
+        curr="audioUpload"
+      />
+
+      <TextEditor
+        style={!disp.texteditor ? { display: "none" } : null}
+        alert={callback}
+        next="datetime"
+        curr="texteditor"
+      />
+      <div style={!disp.datetime ? { display: "none" } : null}>
+        <DateTime />
+        <DateTime />
+        <div
+          className="btn btn-secondary"
+          type="button"
+          onClick={() => callback(null, "datetime", "end")}
         >
-          Learn React
-        </a>
-      </header>
+          Create Event
+        </div>
+      </div>
+
+      <End style={!disp.end ? { display: "none" } : null} />
     </div>
   );
 }

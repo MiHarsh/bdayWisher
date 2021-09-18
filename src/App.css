@@ -1,38 +1,209 @@
-.App {
+@import url(https://fonts.googleapis.com/css?family=Nobile:400italic,700italic);
+
+html,
+body {
+  overflow: hidden;
+  background-color: #ff8b9a;
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ques-text {
+  font-family: "Nobile", sans-serif;
+  font-size: 1.5em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/* CSS for upload image section */
+
+/* General Styles */
+
+* {
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
+:root {
+  --clr-white: rgb(255, 255, 255);
+  --clr-black: rgb(0, 0, 0);
+  --clr-light: rgb(245, 248, 255);
+  --clr-light-gray: rgb(196, 195, 196);
+  --clr-blue: rgb(63, 134, 255);
+  --clr-light-blue: rgb(171, 202, 255);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--clr-light);
+  color: var(--clr-black);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.125rem;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+/* End General Styles */
+
+/* Upload Area */
+.upload-area {
+  width: 100%;
+  max-width: 25rem;
+  background-color: var(--clr-white);
+  box-shadow: 0 10px 60px rgb(218, 229, 255);
+  border: 2px solid var(--clr-light-blue);
+  border-radius: 24px;
+  padding: 2rem 1.875rem 2rem 1.875rem;
+  margin: 0.625rem;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
+.upload-area--open { /* Slid Down Animation */
+  animation: slidDown 500ms ease-in-out;
+}
+
+@keyframes slidDown {
   from {
-    transform: rotate(0deg);
+    height: 28.125rem; /* 450px */
   }
+
   to {
-    transform: rotate(360deg);
+    height: 35rem; /* 560px */
   }
+}
+
+/* Header */
+.upload-area__header {
+
+}
+
+.upload-area__title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 0.3125rem;
+}
+
+.upload-area__paragraph {
+  font-size: 0.9375rem;
+  color: var(--clr-light-gray);
+  margin-top: 0;
+}
+
+
+/* Drop Zoon */
+.upload-area__drop-zoon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px dashed var(--clr-light-blue);
+  border-radius: 15px;
+  margin-top: 2.1875rem;
+  cursor: pointer;
+  transition: border-color 300ms ease-in-out;
+  margin-bottom: 1.2rem;
+}
+
+.upload-area__drop-zoon:hover {
+  border-color: var(--clr-blue);
+}
+
+.drop-zoon__icon {
+  display: flex;
+  font-size: 3.75rem;
+  color: var(--clr-blue);
+  transition: opacity 300ms ease-in-out;
+}
+
+.drop-zoon__paragraph {
+  font-size: 0.9375rem;
+  color: var(--clr-light-gray);
+  margin: 0;
+  margin-top: 0.625rem;
+  transition: opacity 300ms ease-in-out;
+}
+
+.drop-zoon:hover .drop-zoon__icon,
+.drop-zoon:hover .drop-zoon__paragraph {
+  opacity: 0.7;
+}
+
+/* .drop-zoon__loading-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  color: var(--clr-light-blue);
+  z-index: 10;
+} */
+
+
+
+.drop-zoon:hover .drop-zoon__preview-image {
+  opacity: 0.8;
+}
+
+.drop-zoon__file-input {
+  display: none;
+}
+
+/* (drop-zoon--over) Modifier Class */
+.drop-zoon--over {
+  border-color: var(--clr-blue);
+}
+
+.drop-zoon--over .drop-zoon__icon,
+.drop-zoon--over .drop-zoon__paragraph {
+  opacity: 0.7;
+}
+
+/* (drop-zoon--over) Modifier Class */
+.drop-zoon--Uploaded {
+  
+}
+
+.drop-zoon--Uploaded .drop-zoon__icon,
+.drop-zoon--Uploaded .drop-zoon__paragraph {
+  display: none;
+}
+
+
+
+/* Ends here */
+
+
+.img-caraousal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.3125rem;
+  border-radius: 10px;
+  display: block;
+  z-index: 1000;
+  transition: opacity 300ms ease-in-out;
+}
+
+.sliderimg{
+  width: 100%;
+  height: 5%;
+  object-fit: cover;
+  padding: 0.3125rem;
+  border-radius: 10px;
+}
+
+.alice-carousel__prev-btn{
+  text-align: center!important;
+} 
+
+/* css for text box size */
+
+.RichTextEditor__editor___1QqIU .public-DraftEditor-content, .RichTextEditor__editor___1QqIU .public-DraftEditorPlaceholder-root{
+  height: 250px;
 }
