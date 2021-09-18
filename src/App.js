@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import DateTime from "./Components/DateTime";
 import ShowLink from "./Components/ShowLink";
 import TextEditor from "./Components/TextEditor";
 import DataUpload from "./Components/DataUpload";
 import Welcome from "./Components/Welcome";
 import End from "./Components/End";
+import DateTimeComp from "./Components/DateTimeComp";
 
 function App() {
   const [disp, setDisp] = useState({
@@ -71,17 +71,13 @@ function App() {
         next="datetime"
         curr="texteditor"
       />
-      <div style={!disp.datetime ? { display: "none" } : null}>
-        <DateTime />
-        <DateTime />
-        <div
-          className="btn btn-secondary"
-          type="button"
-          onClick={() => callback(null, "datetime", "end")}
-        >
-          Create Event
-        </div>
-      </div>
+
+      <DateTimeComp
+        style={!disp.datetime ? { display: "none" } : null}
+        alert={callback}
+        curr="datetime"
+        next="end"
+      />
 
       <End style={!disp.end ? { display: "none" } : null} />
     </div>

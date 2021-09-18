@@ -10,14 +10,25 @@ function TextEditor(props) {
     setValue({ value: val });
   }
 
+  function handleSubmit() {
+    let message = value.value.toString("html");
+
+    fetch("/saveText", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ message: message }),
+    })
+      .then((response) => response.text())
+      .then((response) => console.log("sent", response));
+    return props.alert(null, props.curr, props.next);
+  }
+
   return (
     <section style={props.style}>
       <RichTextEditor value={value.value} onChange={onChange} />
-      <div
-        className="btn btn-secondary"
-        type="button"
-        onClick={() => props.alert(null, props.curr, props.next)}
-      >
+      <div className="btn btn-secondary" type="button" onClick={handleSubmit}>
         Upload Text
       </div>
     </section>

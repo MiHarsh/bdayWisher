@@ -4,7 +4,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
 
-function DateTime() {
+function DateTime(props) {
   const [value, setValue] = useState(new Date());
 
   return (
@@ -14,8 +14,9 @@ function DateTime() {
         label="DateTimePicker"
         value={value}
         onChange={(newValue) => {
-          console.log(newValue);
-          return setValue(newValue);
+          setValue(newValue);
+          let time = Date.parse(newValue);
+          props.alert(time, props.name);
         }}
       />
     </LocalizationProvider>

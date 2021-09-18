@@ -7,6 +7,8 @@ function DataUpload(props) {
   const [files, setFiles] = useState();
   const [btn, setBtn] = useState(true);
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   function uploadFile(name) {
     document.getElementById(name).click();
   }
@@ -44,9 +46,11 @@ function DataUpload(props) {
       .then((response) => {
         if (response.status === 200) {
           setBtn(false);
+        } else {
+          setErrorMessage("Error While Uploading Files!");
         }
         return response.text();
-      }) // or response.json()
+      })
       .then((responseText) => {
         console.log(responseText);
       })
@@ -106,7 +110,11 @@ function DataUpload(props) {
               disabled={!btn}
               onClick={() => {
                 if (pths.length === 0) {
-                  alert("Please Select any file");
+                  setErrorMessage("Please Select a File!");
+                  setTimeout(() => {
+                    setErrorMessage("");
+                  }, 5000);
+
                   return null;
                 }
                 handleSubmit();
@@ -118,16 +126,13 @@ function DataUpload(props) {
             type="submit"
             value="Next"
             onClick={() => {
-              if (pths.length === 0) {
-                alert("Please Select any file");
-                return null;
-              }
               setBtn(false);
               return props.alert(null, props.curr, props.next);
             }}
           />
         </div>
       </div>
+      {errorMessage && <p className="error"> {errorMessage} </p>}
     </div>
   );
 }
