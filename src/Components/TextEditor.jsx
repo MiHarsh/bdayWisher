@@ -5,6 +5,7 @@ function TextEditor(props) {
   const [value, setValue] = useState({
     value: RichTextEditor.createEmptyValue(),
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   function onChange(val) {
     setValue({ value: val });
@@ -20,9 +21,21 @@ function TextEditor(props) {
       },
       body: JSON.stringify({ message: message }),
     })
-      .then((response) => response.text())
-      .then((response) => console.log("sent", response));
-    return props.alert(null, props.curr, props.next);
+      .then((response) => {
+        if (response.status === 200) {
+          props.alert(null, props.curr, props.next);
+        } else {
+          setErrorMessage("Some Error Occured while saving!");
+          setTimeout(() => {
+            setErrorMessage("");
+          }, 5000);
+        }
+
+        return response.text();
+      })
+      .then((response) => {
+        console.log("sent", response);
+      });
   }
 
   return (
@@ -31,6 +44,7 @@ function TextEditor(props) {
       <div className="btn btn-secondary" type="button" onClick={handleSubmit}>
         Upload Text
       </div>
+      {errorMessage && <p className="error"> {errorMessage} </p>}
     </section>
   );
 }

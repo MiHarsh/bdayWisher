@@ -13,6 +13,8 @@ function Welcome(props) {
   const [hide2, setHide2] = useState(true);
   const [btn, setBtn] = useState(true);
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   function getPinFromUser(data) {
     setUserData((prev) => {
       return { ...prev, pin: data };
@@ -27,6 +29,30 @@ function Welcome(props) {
     });
     setHide2(false);
     console.log(nameUser);
+  }
+
+  function handleSubmit() {
+    fetch("/pinAuth", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((response) => {
+        if (response.status !== 200) {
+          setErrorMessage("Some Error Occured while saving!");
+          setTimeout(() => {
+            setErrorMessage("");
+          }, 5000);
+        }
+
+        return response.text();
+      })
+      .then((response) => {
+        props.alert(response, props.curr, props.next);
+        console.log("sent", response);
+      });
   }
 
   return (
@@ -59,11 +85,12 @@ function Welcome(props) {
         <button
           disabled={btn}
           className="btn btn-secondary"
-          onClick={() => props.alert(userData.pin, props.curr, props.next)}
+          onClick={handleSubmit}
         >
           Create
         </button>
       </div>
+      {errorMessage && <p className="error"> {errorMessage} </p>}
     </div>
   );
 }

@@ -5,7 +5,6 @@ import ImagePreviewer from "./ImagePreviewer";
 function DataUpload(props) {
   const [pths, setPths] = useState([]);
   const [files, setFiles] = useState();
-  const [btn, setBtn] = useState(true);
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -38,6 +37,14 @@ function DataUpload(props) {
   }
 
   const handleSubmit = () => {
+    if (pths.length === 0) {
+      setErrorMessage("Please Select a File!");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 5000);
+      return null;
+    }
+
     const formData = new FormData();
     for (let i = 0; i < files.length; i++) {
       formData.append("fileInput[]", files[i]);
@@ -45,7 +52,7 @@ function DataUpload(props) {
     fetch("/save", { method: "POST", body: formData })
       .then((response) => {
         if (response.status === 200) {
-          setBtn(false);
+          props.alert(null, props.curr, props.next);
         } else {
           setErrorMessage("Error While Uploading Files!");
         }
@@ -107,29 +114,9 @@ function DataUpload(props) {
             <input
               type="submit"
               value="Upload"
-              disabled={!btn}
-              onClick={() => {
-                if (pths.length === 0) {
-                  setErrorMessage("Please Select a File!");
-                  setTimeout(() => {
-                    setErrorMessage("");
-                  }, 5000);
-
-                  return null;
-                }
-                handleSubmit();
-              }}
+              onClick={() => handleSubmit()}
             />
           </form>
-          <input
-            disabled={btn}
-            type="submit"
-            value="Next"
-            onClick={() => {
-              setBtn(false);
-              return props.alert(null, props.curr, props.next);
-            }}
-          />
         </div>
       </div>
       {errorMessage && <p className="error"> {errorMessage} </p>}

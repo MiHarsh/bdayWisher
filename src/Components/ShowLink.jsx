@@ -3,7 +3,9 @@ import React from "react";
 function ShowLink(props) {
   return (
     <div style={props.style}>
-      <div>Copy this link - It will ask the pin which you have entered. </div>
+      <div>
+        Copy this link {props.link}- It will ask the pin which you have entered
+      </div>
       <i className="fa fa-clipboard btn btn-secondary" aria-hidden="true"></i>
       <div
         className="btn btn-secondary"

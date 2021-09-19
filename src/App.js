@@ -18,7 +18,14 @@ function App() {
     end: false,
   });
 
+  const [userCode, setUserCode] = useState("");
+
   function callback(data, curr, next) {
+    if (curr === "welcome") {
+      setUserCode(data);
+      console.log("setting", data);
+    }
+
     setDisp((prev) => {
       let temp = {};
       temp[curr] = false;
@@ -43,6 +50,7 @@ function App() {
         alert={callback}
         next="imageUpload"
         curr="showlink"
+        link={userCode}
       />
       <DataUpload
         style={!disp.imageUpload ? { display: "none" } : null}

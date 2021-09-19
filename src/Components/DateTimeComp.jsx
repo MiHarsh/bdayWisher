@@ -7,6 +7,8 @@ function DateTimeComp(props) {
     end: Date.parse(new Date()),
   });
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   function cb(time, name) {
     setDate((prev) => {
       let temp = {};
@@ -26,9 +28,19 @@ function DateTimeComp(props) {
       },
       body: JSON.stringify(date),
     })
-      .then((response) => response.text())
+      .then((response) => {
+        if (response.status === 200) {
+          props.alert(null, props.curr, props.next);
+        } else {
+          setErrorMessage("Some Error Occured while saving!");
+          setTimeout(() => {
+            setErrorMessage("");
+          }, 5000);
+        }
+
+        return response.text();
+      })
       .then((response) => console.log("sent", response));
-    return props.alert(null, props.curr, props.next);
   }
 
   return (
@@ -38,6 +50,7 @@ function DateTimeComp(props) {
       <div className="btn btn-secondary" type="button" onClick={handleSubmit}>
         Create Event
       </div>
+      {errorMessage && <p className="error"> {errorMessage} </p>}
     </div>
   );
 }
