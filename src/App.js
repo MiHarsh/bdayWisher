@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Timer from "./Components/Timer/Timer";
+import PinInput from "./Components/Pin/PinInput";
+
+import End from "./Components/Ending/End";
+import Welcome from "./Components/Welcome/Welcome";
+import Card from "./Components/Card/Card";
+
+import BodyText from "./Components/BodyText/BodyText";
+
+import Whatsapp from "./Components/Whatsapp/Whatsapp";
+import HBD from "./Components/HBD/HBD";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PinInput />
+      {/* <Timer /> */}
+
+      {/* <Welcome /> */}
+
+      {/* <Whatsapp /> */}
+      {/* <BodyText /> */}
+      {/* <HBD /> */}
+
+      {/* <Card /> */}
+      {/* <End /> */}
     </div>
   );
 }
