@@ -6,14 +6,18 @@ import UserBar from "./UserBar";
 import Statusbar from "./Statusbar";
 import Textinput from "./Textinput";
 
+import Typist from "react-typist";
+
 function Whatsapp(props) {
   const [display, setDisplay] = useState(false);
+  const [showType, setShowType] = useState(false);
 
   function cb() {
     setTimeout(function () {
       let tick = document.querySelector(".tick-animation");
       if (tick) {
         tick.classList.remove("tick-animation");
+        setShowType(true);
       }
     }, 500);
     setDisplay(true);
@@ -21,7 +25,10 @@ function Whatsapp(props) {
 
   return (
     <div className="page" style={!props.state ? { display: "none" } : null}>
-      <div className="marvel-device nexus5">
+      <div
+        className="marvel-device nexus5"
+        style={showType ? { display: "none" } : null}
+      >
         <div className="top-bar"></div>
         <div className="sleep"></div>
         <div className="volume"></div>
@@ -33,7 +40,7 @@ function Whatsapp(props) {
 
             <div className="chat">
               <div className="chat-container">
-                <UserBar />
+                <UserBar userData={props.userData} />
                 <div className="conversation">
                   <div className="conversation-container">
                     <Sent
@@ -60,14 +67,33 @@ function Whatsapp(props) {
                       class="tick-animation"
                     />
                   </div>
-                  <Textinput alert={cb} state={props.state} />
+                  {props.state ? (
+                    <Textinput alert={cb} state={props.state} />
+                  ) : null}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div>That's what I was going to do</div>
+
+      {showType ? (
+        <Typist
+          avgTypingDelay={100}
+          onTypingDone={() =>
+            setTimeout(() => {
+              props.cb(null, props.curr, props.next);
+            }, 4000)
+          }
+          className="welcome welcome-text"
+        >
+          <article>
+            <h1 style={{ fontSize: "80px" }}>That's what I was going to do</h1>
+          </article>
+          <Typist.Delay ms={30} />
+          <h1 style={{ fontSize: "200px" }}>&#128517;</h1>
+        </Typist>
+      ) : null}
     </div>
   );
 }

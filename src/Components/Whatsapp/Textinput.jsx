@@ -21,7 +21,7 @@ function Textinput(props) {
         setMessage((prev) => prev + message.charAt(count));
         setCount((prev) => prev + 1);
       }
-    }, 200);
+    }, 300);
 
     return () => clearInterval(intervalId);
   }, [hbdMessage, count, props.state]);

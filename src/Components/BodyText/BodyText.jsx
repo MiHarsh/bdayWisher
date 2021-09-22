@@ -7,7 +7,14 @@ function BodyText(props) {
       <div className="welcome-text">
         {props.state ? (
           <article>
-            <Typist avgTypingDelay={100}>
+            <Typist
+              avgTypingDelay={100}
+              onTypingDone={() =>
+                setTimeout(() => {
+                  props.cb(null, props.curr, props.next);
+                }, 4000)
+              }
+            >
               <h1>But then I realised,</h1>
               <Typist.Delay ms={30} />
               <h1>I need to do something special,</h1>

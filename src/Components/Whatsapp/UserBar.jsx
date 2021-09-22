@@ -1,6 +1,6 @@
 import React from "react";
 
-function UserBar() {
+function UserBar(props) {
   return (
     <div className="user-bar">
       <div className="back">
@@ -8,12 +8,14 @@ function UserBar() {
       </div>
       <div className="avatar">
         <img
-          src="https://avatars2.githubusercontent.com/u/398893?s=128"
-          alt="Avatar"
+          src={props.userData.photosLink["file_0"]}
+          height="36px"
+          width="36px"
+          alt=""
         />
       </div>
       <div className="name">
-        <span>Zeno Rocha</span>
+        <span>{props.userData.userName}</span>
         <span className="status">online</span>
       </div>
       <div className="actions more">

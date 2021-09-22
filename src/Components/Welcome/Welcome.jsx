@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 
 function Welcome(props) {
-
-
   useEffect(() => {
     let effect = window.onload;
     effect();
+    setTimeout(() => {
+      if (props.state) {
+        props.cb(null, props.curr, props.next);
+      }
+    }, 8000);
   }, [props.state]);
 
   return (

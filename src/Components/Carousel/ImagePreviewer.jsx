@@ -12,6 +12,7 @@ function ImagePreviewer(props) {
         autoPlay
         autoPlayInterval="2000"
         autoPlayDirection="rtl"
+        disableDotsControls="true"
       >
         {props.paths.map((imgsrc, index) => {
           return (
@@ -19,8 +20,10 @@ function ImagePreviewer(props) {
               alt="Preview"
               key={index}
               src={imgsrc}
-              className="sliderimg rotateimg180"
+              className="sliderimg rotateimg180 img-caraousal-img"
               draggable="false"
+              align="center"
+              vertical-align="middle"
             />
           );
         })}

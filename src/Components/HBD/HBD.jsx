@@ -15,8 +15,8 @@ function HBD(props) {
     });
   }
 
-  function surprise(){
-    console.log("clicked surprise")
+  function surprise() {
+    props.cb(null, props.curr, props.next);
   }
 
   return (
@@ -45,7 +45,7 @@ function HBD(props) {
 
       <div className="hb-container">
         <h3 className="happy">Happy</h3>
-        <h3 className="twentyseven">28th</h3>
+        <h3 className="twentyseven">{props.userData.userName}</h3>
         <h3 className="birthday">Birthday!</h3>
         <div className="ballon">
           <svg

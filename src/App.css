@@ -78,6 +78,17 @@ p {
 
 /* Landing */
 
+.timer-text {
+  font-size: 40px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Londrina Solid", cursive !important;
+  position: relative;
+}
+
 .landing-wrapper {
   padding: calc(45px + 2em) 0;
   width: 100%;
@@ -470,7 +481,8 @@ body {
   padding: 0;
   height: 100%;
   overflow: hidden;
-  background-color: black;
+  /* background-color: black; */
+  /* background-image: url("/BACKGROUND.png"); */
 }
 
 input {
@@ -483,7 +495,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  /* background-color: black; */
 
   position: absolute;
   margin: auto;
@@ -1228,18 +1240,27 @@ body {
 } */
 
 .card-c {
-  position: relative;
-  width: 410px;
-  min-height: 520px;
   border: 10px solid #b99e35;
   margin: 50px auto 0 auto;
   box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
   background-color: #48565e;
+
+  position: absolute;
+  top: 40%;
+  left: 65%;
+  transform: translate(-50%, -50%);
 }
 
 .card-c .text-container {
-  min-height: 520px;
   margin: auto;
+  overflow-y: scroll;
+  width: 410px !important;
+  height: 560px !important;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
 
 .strikethrough {
@@ -1262,10 +1283,16 @@ body {
   margin: 8px auto 0px auto;
 }
 
+.card-heights {
+  width: 430px !important;
+  height: 580px !important;
+}
+
 .card-c .front {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
+
   margin: -10px 0px 0px -10px;
   border: 10px solid #b99e35;
   backface-visibility: hidden;
@@ -1293,8 +1320,8 @@ body {
 
 .card-c .back {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   border: 10px solid #b99e35;
   margin: -10px 0px 0px -10px;
   backface-visibility: visible;
@@ -1543,7 +1570,7 @@ body {
   border-radius: 5px;
   color: brown;
   opacity: 0.8;
-  min-height: 520px;
+  min-height: 560px;
 }
 
 #thumbnail {
@@ -1592,9 +1619,9 @@ footer {
 }
 
 .sliderimg {
-  height: "100%";
+  height: 100%;
   /* object-fit: "contain"; */
-  width: "410px";
+  width: 410px;
   /* width: 280px;
   height: 200px; */
   object-fit: cover;
@@ -1602,8 +1629,26 @@ footer {
   border-radius: 10px;
 }
 
+.img-caraousal-img {
+  display: block;
+  max-width: 400px;
+  max-height: 450px;
+  width: auto;
+  height: auto;
+  margin: auto;
+  margin-top: 4%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleX(-1);
+}
+
 .alice-carousel__prev-btn {
   text-align: center !important;
+}
+
+.alice-carousel__wrapper {
+  height: 480px !important;
 }
 
 /*  */
@@ -1634,6 +1679,56 @@ article {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
+}
+
+/*  */
+
+/* Input Pin */
+
+.pinInput {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+
+  font-size: 20px;
+  /* background-color: cyan; */
+  border: darkgreen 5px solid;
+  padding: 5px;
+  z-index: 100;
+}
+
+.inputpin-btn {
+  text-align: center;
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+  /* position: fixed; */
+  bottom: 1rem;
+  right: 1rem;
+  width: 30%;
+  border-color: #000000;
+  color: #c4ddcf;
+  background-color: darkgreen;
+}
+
+/*  */
+
+/* For Error Messages */
+.error {
+  font-size: 20px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Londrina Solid", cursive;
+  position: relative;
+  color: red;
 }
 
 /*  */

@@ -37,7 +37,7 @@ function Timer(props) {
       props.alert(props.pin);
       return;
     }
-    
+
     const intervalId = setInterval(() => {
       if (t1 !== 0) {
         setTimeLeft(t1 - Date.now());
@@ -50,6 +50,9 @@ function Timer(props) {
 
   return (
     <div style={!props.state ? { display: "none" } : null}>
+      <div>
+        <h1 className="timer-text welcome-text">Time Left for the Event to Start</h1>
+      </div>
       <div className="timer-wrapper">
         <div className="time-wrapper">
           <div className="time" id="days">

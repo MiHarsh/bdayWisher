@@ -16,32 +16,44 @@ function PinInputUser(props) {
 
   return (
     <div style={!props.state ? { display: "none" } : null}>
-      <PinInput
-        length={5}
-        initialValue={pin}
-        secret={!show}
-        focus
-        type="numeric"
-        style={{ padding: "10px" }}
-        inputStyle={{ borderColor: "red" }}
-        inputFocusStyle={{ borderColor: "blue" }}
-        onComplete={(value, index) => {
-          //   props.alert(value);
-          setPin(value);
-          setBtn(false);
-        }}
-      />
-      <div className="btn btn-secondary" type="button" onClick={showPin}>
-        Show
+      <div>
+        <h1 className="welcome welcome-text" style={{ fontSize: "40px" }}>
+          Please Enter the pin to proceed
+        </h1>
       </div>
-      <button
-        style={btn ? { display: "none" } : null}
-        className="btn btn-secondary"
-        type="button"
-        onClick={() => props.alert(pin)}
-      >
-        Submit
-      </button>
+      <div className="pinInput">
+        <PinInput
+          length={5}
+          initialValue={pin}
+          secret={!show}
+          focus
+          type="numeric"
+          style={{ padding: "10px" }}
+          inputStyle={{ borderColor: "green" }}
+          inputFocusStyle={{ borderColor: "darkgreen" }}
+          onComplete={(value, index) => {
+            //   props.alert(value);
+            setPin(value);
+            setBtn(false);
+          }}
+        />
+        <div
+          className="btn inputpin-btn"
+          style={{ left: "1rem" }}
+          type="button"
+          onClick={showPin}
+        >
+          Show
+        </div>
+        <button
+          style={btn ? { display: "none" } : null}
+          className="btn inputpin-btn"
+          type="button"
+          onClick={() => props.alert(pin)}
+        >
+          Submit
+        </button>
+      </div>
     </div>
   );
 }
