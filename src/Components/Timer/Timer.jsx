@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function Timer() {
-  let t1 = Date.now() + 10000;
+function Timer(props) {
+  let t1 = props.start;
+
+  const [timeLeft, setTimeLeft] = useState(0);
 
   const [data, setData] = useState({
     days: "00",
@@ -30,53 +32,52 @@ function Timer() {
     };
   }
 
-  function handleClick() {
-    const intervalCal = setInterval(() => {
-      let currData = returnTimerData(Math.abs(Date.now() - t1));
-      setData(currData);
-      if (
-        currData.days === "00" &&
-        currData.hours === "00" &&
-        currData.minutes === "00" &&
-        currData.seconds === "00"
-      ) {
-        clearInterval(intervalCal);
+  useEffect(() => {
+    if (timeLeft < -1 && props.state && t1 !== 0) {
+      props.alert(props.pin);
+      return;
+    }
+    
+    const intervalId = setInterval(() => {
+      if (t1 !== 0) {
+        setTimeLeft(t1 - Date.now());
+        setData(returnTimerData(timeLeft));
       }
     }, 1000);
-  }
+
+    return () => clearInterval(intervalId);
+  }, [t1, timeLeft]);
 
   return (
-    <div>
-      {(window.onload = handleClick)}
-
-      <div class="timer-wrapper">
-        <div class="time-wrapper">
-          <div class="time" id="days">
+    <div style={!props.state ? { display: "none" } : null}>
+      <div className="timer-wrapper">
+        <div className="time-wrapper">
+          <div className="time" id="days">
             {data.days}
           </div>
         </div>
-        <div class="time-colon">:</div>
-        <div class="time-label">Days</div>
-        <div class="time-wrapper">
-          <div class="time" id="hours">
+        <div className="time-colon">:</div>
+        <div className="time-label">Days</div>
+        <div className="time-wrapper">
+          <div className="time" id="hours">
             {data.hours}
           </div>
         </div>
-        <div class="time-colon">:</div>
-        <div class="time-label">Hours</div>
-        <div class="time-wrapper">
-          <div class="time" id="minutes">
+        <div className="time-colon">:</div>
+        <div className="time-label">Hours</div>
+        <div className="time-wrapper">
+          <div className="time" id="minutes">
             {data.minutes}
           </div>
         </div>
-        <div class="time-colon">:</div>
-        <div class="time-label">Minutes</div>
-        <div class="time-wrapper">
-          <div class="time" id="seconds">
+        <div className="time-colon">:</div>
+        <div className="time-label">Minutes</div>
+        <div className="time-wrapper">
+          <div className="time" id="seconds">
             {data.seconds}
           </div>
         </div>
-        <div class="time-label">Seconds</div>
+        <div className="time-label">Seconds</div>
       </div>
     </div>
   );

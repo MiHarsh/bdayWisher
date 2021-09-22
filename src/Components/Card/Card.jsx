@@ -1,7 +1,7 @@
 import React from "react";
 import ImagePreviewer from "../Carousel/ImagePreviewer";
 
-function Card() {
+function Card(props) {
   let pths = [
     "https://picsum.photos/200",
     "https://picsum.photos/200",
@@ -11,7 +11,7 @@ function Card() {
   ];
 
   return (
-    <div className="card-c">
+    <div className="card-c" style={!props.state ? { display: "none" } : null}>
       <div className="back">
         <ImagePreviewer paths={pths} />
       </div>

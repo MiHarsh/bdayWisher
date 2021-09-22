@@ -1,7 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Textinput(props) {
   const [hbdMessage, setMessage] = useState("");
+  const [count, setCount] = useState(0);
+
+  let message = "Happy Birthday";
+
+  useEffect(() => {
+    if (count === 14) {
+      setTimeout(() => {
+        props.alert();
+      }, 200);
+
+      setMessage("");
+      return;
+    }
+
+    const intervalId = setInterval(() => {
+      if (props.state) {
+        setMessage((prev) => prev + message.charAt(count));
+        setCount((prev) => prev + 1);
+      }
+    }, 200);
+
+    return () => clearInterval(intervalId);
+  }, [hbdMessage, count, props.state]);
 
   return (
     <form className="conversation-compose">

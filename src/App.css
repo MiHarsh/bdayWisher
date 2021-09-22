@@ -118,7 +118,7 @@ p {
   position: absolute;
   width: 90%;
   height: 5px;
-  background-color: #ff1744;
+  /* background-color: #ff1744; */
   right: 5%;
   bottom: 0.05em;
 }
@@ -796,6 +796,7 @@ input {
   margin: 0;
   outline: none;
   min-width: 50px;
+  color: black;
 }
 
 .conversation-compose .photo {
@@ -962,10 +963,12 @@ canvas {
   text-align: center;
   margin: 1rem 0 0;
   font-size: 0.875rem;
-  color: #b5bbc3;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
+  border-color: #6767ad;
+  color: #3a7f57;
+  background-color: #ffffff;
 }
 .challenge-part-of a,
 .challenge-part-of a:visited {
@@ -1601,6 +1604,36 @@ footer {
 
 .alice-carousel__prev-btn {
   text-align: center !important;
+}
+
+/*  */
+
+/* Welcome Section */
+.welcome {
+  font-size: 10px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Londrina Solid", cursive;
+  position: relative;
+}
+
+.welcome-text {
+  margin-top: 15vh !important;
+}
+
+/*  */
+
+/* Body Section */
+
+article {
+  background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
 }
 
 /*  */
