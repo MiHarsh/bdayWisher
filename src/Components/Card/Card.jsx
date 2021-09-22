@@ -13,7 +13,10 @@ function Card(props) {
   return (
     <div style={!props.state ? { display: "none" } : null}>
       <div className="card-c card-heights">
-        <div className="back card-heights">
+        <div
+          className="back card-heights"
+          style={{ backgroundImage: "url(./BACKGROUND.png)" }}
+        >
           <ImagePreviewer paths={pths} />
         </div>
         <div className="front card-heights">
@@ -37,20 +40,6 @@ function Card(props) {
                 </h1>
                 <hr />
                 <Interweave content={props.userData.message} />
-                {/* <p>
-                May your heart rejoice in knowing that, on this day the world
-                became a brighter, blessed, more beautiful place because you
-                were born...
-              </p>
-              <p>
-                The life of a person is measured not with the years, but with
-                the footprint that he leaves in other people's lives, thoughts
-                and hearts.
-              </p> */}
-                {/* <p>
-                I wish you every happiness your heart can hold. Here's to
-                another fabulous year of life!.
-              </p> */}
                 You're simply the best.
                 <br />
                 LiveOutLoud! Celebrate! Wuhuuuu! Yayyyyyyy!

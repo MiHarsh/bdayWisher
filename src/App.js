@@ -16,19 +16,19 @@ function App() {
   const [pin, setPin] = useState("");
 
   const [disp, setDisp] = useState({
-    pininput: true,
+    pininput: false,
     timer: false,
     welcome: false,
     whatsapp: false,
     bodytext: false,
     hbd: false,
-    card: false,
+    card: true,
   });
 
   const [userData, setUserData] = useState({
     eventName: "",
-    photosLink: [],
-    AudioLink: "",
+    photosLink: {},
+    AudioLink: {},
     message: "",
     scheduledStart: 0,
     userName: "",
