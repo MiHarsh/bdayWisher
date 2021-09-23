@@ -56,12 +56,27 @@ function Welcome(props) {
   }
 
   return (
-    <div style={props.style}>
+    <div style={props.style} className="text-css">
       <div style={!hide1 ? { display: "none" } : null}>
-        <div className="ques-text">Hi there</div>
-        <div>Blah blah blah Welcome Text</div>
+        <div>
+          Are you tired of the so-called oneliner- "Happy Birthday" or thinking
+          {/* to make it memorable but stuck with no ideas in mind? Wait, Let me
+          help you. */}
+          {/* <div>
+            This portal provides you with the easiest way to create an
+            incredible birthday surprise without putting in a lot of effort.
+            Secured via pin, no one could ever know what the event was all
+            about. The events' creation and destruction timing feature make this
+            web app cooler than the other trivial methods.
+          </div>
+          <div>
+            So why wait? Upload your message, photos, and audios and get a
+            secured surprise for your friends.
+          </div> */}
+        </div>
+
         <div
-          className="btn btn-secondary"
+          className="btn input-btn"
           type="button"
           onClick={() => setHide1(false)}
         >
@@ -82,11 +97,7 @@ function Welcome(props) {
           this pin
         </p>
 
-        <button
-          disabled={btn}
-          className="btn btn-secondary"
-          onClick={handleSubmit}
-        >
+        <button disabled={btn} className="btn input-btn" onClick={handleSubmit}>
           Create
         </button>
       </div>

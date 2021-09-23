@@ -8,9 +8,18 @@ function BDayName(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" id={props.name} name={props.name} required />
-
-      <button>Submit</button>
+      <div>
+        <input
+          type="text"
+          id={props.name}
+          name={props.name}
+          required
+          placeholder="Enter the name"
+        />
+      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <button className="input-btn">Submit</button>
+      </div>
     </form>
   );
 }

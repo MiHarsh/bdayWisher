@@ -1,13 +1,44 @@
 /* @import url(https://fonts.googleapis.com/css?family=Nobile:400italic,700italic); */
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+p {
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
 html,
 body {
   overflow: hidden;
   /* background-color: #ff8b9a; */
+
   width: 100%;
   height: 100%;
   text-align: center;
+  margin: 0;
+  padding: 0;
+  /* background-color: var(--clr-light); */
+  color: white;
+  /* font-family: "Poppins", sans-serif; */
+  font-size: 1.125rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url("/BACKGROUND.png"); */
 }
 
 .ques-text {
@@ -31,19 +62,6 @@ body {
   --clr-light-gray: rgb(196, 195, 196);
   --clr-blue: rgb(63, 134, 255);
   --clr-light-blue: rgb(171, 202, 255);
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--clr-light);
-  color: var(--clr-black);
-  font-family: "Poppins", sans-serif;
-  font-size: 1.125rem;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* End General Styles */
@@ -201,4 +219,51 @@ body {
 .RichTextEditor__editor___1QqIU .public-DraftEditor-content,
 .RichTextEditor__editor___1QqIU .public-DraftEditorPlaceholder-root {
   height: 250px;
+}
+
+/* Error Messages */
+
+.error {
+  font-size: 20px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Londrina Solid", cursive;
+  position: relative;
+  color: red;
+}
+/*  */
+
+.input-btn {
+  text-align: center;
+  /* margin: 1rem 0 0; */
+  font-size: 0.875rem;
+  padding: 0.3125rem;
+  /* position: fixed; */
+  /* bottom: 1rem;
+  right: 1rem; */
+  width: 90px;
+  border-color: #000000;
+  color: #c4ddcf;
+  background-color: darkgreen;
+}
+
+.text-css {
+  font-size: 70px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-direction: column;
+  /* min-height: 100vh; */
+  font-family: "Londrina Solid", cursive;
+  position: relative;
+}
+
+input {
+  height: 5%;
+  font-size: 30px;
 }
