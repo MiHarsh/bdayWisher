@@ -41,6 +41,10 @@ body {
   /* background-image: url("/BACKGROUND.png"); */
 }
 
+.pinInput input {
+  color: white;
+}
+
 .ques-text {
   /* font-family: "Nobile", sans-serif; */
   font-family: "Libre Baskerville", serif;
@@ -237,6 +241,23 @@ body {
 }
 /*  */
 
+.pinInput {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+
+  font-size: 20px;
+  /* background-color: cyan; */
+  border: darkgreen 5px solid;
+  padding: 5px;
+  z-index: 100;
+}
+
 .input-btn {
   text-align: center;
   /* margin: 1rem 0 0; */
@@ -267,3 +288,33 @@ input {
   height: 5%;
   font-size: 30px;
 }
+
+/* Welcome Section */
+.welcome {
+  font-size: 10px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-direction: column;
+  /* min-height: 100vh; */
+  font-family: "Londrina Solid", cursive;
+  position: relative;
+}
+
+.welcome-text {
+  /* margin-top: 40vh !important; */
+}
+
+.get-center {
+  position: fixed;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+/*  */

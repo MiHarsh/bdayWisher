@@ -89,18 +89,12 @@ function Welcome(props) {
         <BDayName alert={cbName} />
       </div>
 
-      <div style={hide1 || hide2 ? { display: "none" } : null}>
-        <div>Enter Secret Pin</div>
-        <PinInputUser alert={getPinFromUser} />
-        <p>
-          Please Enter it carefully, since the event wont be accessbile without
-          this pin
-        </p>
+      <PinInputUser
+        style={hide1 || hide2 ? { display: "none" } : null}
+        alert={getPinFromUser}
+        onClick={handleSubmit}
+      />
 
-        <button disabled={btn} className="btn input-btn" onClick={handleSubmit}>
-          Create
-        </button>
-      </div>
       {errorMessage && <p className="error"> {errorMessage} </p>}
     </div>
   );

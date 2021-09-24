@@ -9,8 +9,8 @@ import DateTimeComp from "./Components/DateTimeComp";
 
 function App() {
   const [disp, setDisp] = useState({
-    welcome: true,
-    showlink: false,
+    welcome: false,
+    showlink: true,
     imageUpload: false,
     audioUpload: false,
     texteditor: false,
