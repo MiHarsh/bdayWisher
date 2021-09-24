@@ -45,9 +45,13 @@ function DateTimeComp(props) {
 
   return (
     <div style={props.style}>
-      <DateTime alert={cb} name="start" />
-      <DateTime alert={cb} name="end" />
-      <div className="btn btn-secondary" type="button" onClick={handleSubmit}>
+      <div>
+        <DateTime alert={cb} name="start" />
+      </div>
+      <div>
+        <DateTime alert={cb} name="end" />
+      </div>
+      <div className="btn input-btn" type="button" onClick={handleSubmit}>
         Create Event
       </div>
       {errorMessage && <p className="error"> {errorMessage} </p>}

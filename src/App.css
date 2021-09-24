@@ -74,7 +74,7 @@ body {
 .upload-area {
   width: 100%;
   max-width: 25rem;
-  background-color: var(--clr-white);
+  /* background-color: var(--clr-white); */
   box-shadow: 0 10px 60px rgb(218, 229, 255);
   border: 2px solid var(--clr-light-blue);
   border-radius: 24px;
@@ -225,6 +225,14 @@ body {
   height: 250px;
 }
 
+.RichTextEditor__root___2QXK- {
+  background: none !important;
+}
+
+option {
+  background: black;
+}
+
 /* Error Messages */
 
 .error {
@@ -234,10 +242,17 @@ body {
   margin: 0;
   align-items: center;
   flex-direction: column;
-  min-height: 100vh;
   font-family: "Londrina Solid", cursive;
-  position: relative;
   color: red;
+
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 /*  */
 
@@ -266,7 +281,7 @@ body {
   /* position: fixed; */
   /* bottom: 1rem;
   right: 1rem; */
-  width: 90px;
+  min-width: 90px;
   border-color: #000000;
   color: #c4ddcf;
   background-color: darkgreen;

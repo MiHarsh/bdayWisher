@@ -28,20 +28,21 @@ function TextEditor(props) {
           setErrorMessage("Some Error Occured while saving!");
           setTimeout(() => {
             setErrorMessage("");
-          }, 5000);
+          }, 3000);
         }
 
         return response.text();
       })
-      .then((response) => {
-        console.log("sent", response);
-      });
+      // .then((response) => {
+        // console.log("sent", response);
+      // });
   }
 
   return (
-    <section style={props.style}>
+    <section style={{ maxWidth: "707px", ...props.style }} className="">
       <RichTextEditor value={value.value} onChange={onChange} />
-      <div className="btn btn-secondary" type="button" onClick={handleSubmit}>
+      <hr />
+      <div className="btn input-btn" type="button" onClick={handleSubmit}>
         Upload Text
       </div>
       {errorMessage && <p className="error"> {errorMessage} </p>}
