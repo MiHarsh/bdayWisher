@@ -10,16 +10,16 @@
 
 ## Table of Contents 📕
 
-- [About](#bdaywisher-1)
-- [Features](#features-)
-  	- [More Secured Events](#1-more-secured-events)
-  	- [Scheduling](#2-scheduling)
-  	- [Adding images](#3-adding-images)
-  	- [Adding Audio](#4-adding-audio)
-  	- [Adding text](#5-adding-text)
-- [Future Work](#future-work)
-- [Gallery](#gallery)
-- [Contributions](#contributions)
+* [About](#bdaywisher-1)
+* [Features](#features-)
+  	* [More Secured Events](#1-more-secured-events)
+  	* [Scheduling](#2-scheduling)
+  	* [Adding images](#3-adding-images)
+  	* [Adding Audio](#4-adding-audio)
+  	* [Adding text](#5-adding-text)
+* [Future Work](#future-work)
+* [Gallery](#gallery)
+* [Contributions](#contributions)
 
 # bdayWisher 
 Are you tired of the so-called oneliner- **"Happy Birthday"** or thinking to make it memorable but stuck with no ideas in mind?
@@ -84,14 +84,14 @@ Upload your message, photos, and audios and get a **secured surprise** for your 
 # Contributions:
 Contributions are welcome ❤️. For major changes, please open an issue first to discuss what you would like to change.
 
-* To run "main" branch locally 
-```
+To run *main* branch locally 
+```bash
 $ npm install
 $ npm start
 ```
 
-* To run "creator / receiver" branch
-```
+To run *creator* / *receiver* branch
+```bash
 // first run the server on port 4000
 $ git checkout server 
 $ npm install
@@ -102,7 +102,8 @@ $ git checkout creator(or receiver)
 $ npm install
 $ npm start
 ```
-```
+
+```bash
 // To build react code 
 $ npm run build
 // then rename the folders as build-receiver(or build-creator) 
@@ -111,9 +112,9 @@ and replace the ones present in "main" branch
 ```
 
 Note - 
-* when running creator/ receiver branch, proxy on port 4000, is being used. 
-* "main" branch - Backend + builds of "creator" and "receiver" branches.
-* "creator" branch  - react code for creator end.
-* "receiver" branch - react code for receiver end.
+* when running *creator* / *receiver* branch, proxy on port 4000, is being used. 
+* *main* branch - Backend + builds of *creator* and *receiver* branches.
+* *creator* branch  - react code for creator end.
+* *receiver* branch - react code for receiver end.
 
 Do Give a **Star** if you like it ❤️
