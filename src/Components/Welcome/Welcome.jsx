@@ -58,21 +58,14 @@ function Welcome(props) {
   return (
     <div style={props.style} className="text-css">
       <div style={!hide1 ? { display: "none" } : null}>
-        <div>
-          Are you tired of the so-called oneliner- "Happy Birthday" or thinking
-          {/* to make it memorable but stuck with no ideas in mind? Wait, Let me
-          help you. */}
-          {/* <div>
-            This portal provides you with the easiest way to create an
-            incredible birthday surprise without putting in a lot of effort.
-            Secured via pin, no one could ever know what the event was all
-            about. The events' creation and destruction timing feature make this
-            web app cooler than the other trivial methods.
-          </div>
-          <div>
-            So why wait? Upload your message, photos, and audios and get a
-            secured surprise for your friends.
-          </div> */}
+        <div style={{ fontSize: "32px", width: "800px" }} className="shade">
+          <span>
+            Are you tired of the so-called oneliner-
+            <span style={{ fontSize: "30px" }}>"Happy Birthday"</span> or
+            thinking to make it memorable but stuck with no ideas?
+          </span>
+          <hr />
+          <span>Try out bDayWisher</span>
         </div>
 
         <div
@@ -85,7 +78,9 @@ function Welcome(props) {
       </div>
 
       <div style={hide1 || !hide2 ? { display: "none" } : null}>
-        <div>So Who's Birthday It is?</div>
+        <div className="shade" style={{ fontSize: "40px" }}>
+          So Who's Birthday It is?
+        </div>
         <BDayName alert={cbName} />
       </div>
 

@@ -1,6 +1,7 @@
 /* @import url(https://fonts.googleapis.com/css?family=Nobile:400italic,700italic); */
 /* @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&family=Gluten:wght@300&display=swap");
 
 h1,
 h2,
@@ -39,6 +40,14 @@ body {
   justify-content: center;
   align-items: center;
   /* background-image: url("/BACKGROUND.png"); */
+  /* font-family: "Londrina Solid", cursive; */
+  font-family: "Gluten", cursive;
+
+
+
+  
+
+
 }
 
 .pinInput input {
@@ -73,7 +82,7 @@ body {
 /* Upload Area */
 .upload-area {
   width: 100%;
-  max-width: 25rem;
+  max-width: 19rem;
   /* background-color: var(--clr-white); */
   box-shadow: 0 10px 60px rgb(218, 229, 255);
   border: 2px solid var(--clr-light-blue);
@@ -226,7 +235,13 @@ body {
 }
 
 .RichTextEditor__root___2QXK- {
-  background: none !important;
+  /* background: #624545 !important; */
+  background: #39473f !important;
+  height: 26rem !important;
+}
+
+.RichTextEditor__editor___1QqIU .public-DraftEditor-content {
+  font-size: 18px !important;
 }
 
 option {
@@ -242,7 +257,8 @@ option {
   margin: 0;
   align-items: center;
   flex-direction: column;
-  font-family: "Londrina Solid", cursive;
+  /* font-family: "Londrina Solid", cursive; */
+
   color: red;
 
   position: fixed;
@@ -295,7 +311,8 @@ option {
   align-items: center;
   flex-direction: column;
   /* min-height: 100vh; */
-  font-family: "Londrina Solid", cursive;
+  /* font-family: "Londrina Solid", cursive; */
+  font-family: "Gluten", cursive;
   position: relative;
 }
 
@@ -313,7 +330,8 @@ input {
   align-items: center;
   flex-direction: column;
   /* min-height: 100vh; */
-  font-family: "Londrina Solid", cursive;
+  /* font-family: "Londrina Solid", cursive; */
+  font-family: "Gluten", cursive;
   position: relative;
 }
 
@@ -333,3 +351,31 @@ input {
 }
 
 /*  */
+
+/* Date Time */
+
+.dt {
+  background: #d9d9d9;
+  border: #403e3e 10px solid;
+  border-radius: 9px;
+  margin: 15px 0;
+  padding-top: 5px;
+}
+
+/*  */
+
+article {
+  background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.shade {
+  background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+

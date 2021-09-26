@@ -22,17 +22,23 @@ function ShowLink(props) {
       <p className="error">{copySuccess}</p>
       <div className="get-center">
         <div>
-          <h1 className="welcome welcome-text" style={{ fontSize: "45px" }}>
+          <h1
+            className="welcome welcome-text shade"
+            style={{ fontSize: "45px" }}
+          >
             Copy this link
           </h1>
         </div>
 
-        <div ref={textAreaRef}>
+        <div ref={textAreaRef} className="shade">
           {document.location.href + "user/event?id=" + props.link}
         </div>
         <hr />
         <div style={{ marginBottom: "1rem" }}>
-          <p style={{ fontSize: "14px", marginBottom: "1rem" }}>
+          <p
+            style={{ fontSize: "14px", marginBottom: "1rem" }}
+            className="shade"
+          >
             Event will be accessbile at the above link
           </p>
         </div>

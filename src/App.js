@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import ShowLink from "./Components/ShowLink";
-import TextEditor from "./Components/TextEditor";
-import DataUpload from "./Components/DataUpload";
-import Welcome from "./Components/Welcome";
-import End from "./Components/End";
-import DateTimeComp from "./Components/DateTimeComp";
+import ShowLink from "./Components/ShowLink/ShowLink";
+import TextEditor from "./Components/TextEditor/TextEditor";
+import DataUpload from "./Components/DataUpload/DataUpload";
+import Welcome from "./Components/Welcome/Welcome";
+import End from "./Components/Ending/End";
+import DateTimeComp from "./Components/DateTime/DateTimeComp";
 
 function App() {
   const [disp, setDisp] = useState({

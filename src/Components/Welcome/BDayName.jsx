@@ -15,6 +15,7 @@ function BDayName(props) {
           name={props.name}
           required
           placeholder="Enter the name"
+          style={{ background: "#d1d1d1" }}
         />
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>

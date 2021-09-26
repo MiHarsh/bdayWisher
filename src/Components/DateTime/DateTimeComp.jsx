@@ -45,11 +45,13 @@ function DateTimeComp(props) {
 
   return (
     <div style={props.style}>
-      <div>
-        <DateTime alert={cb} name="start" />
+      <div className="get-center">
+        <h1>Specify Event Creation and Destruction Time</h1>
+        <p>Events would only be accessible between these time period</p>
       </div>
-      <div>
-        <DateTime alert={cb} name="end" />
+      <div className="dt">
+        <DateTime alert={cb} name="start" label="Event Start Time" />
+        <DateTime alert={cb} name="end" label="Event End Time" />
       </div>
       <div className="btn input-btn" type="button" onClick={handleSubmit}>
         Create Event

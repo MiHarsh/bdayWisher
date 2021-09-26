@@ -11,7 +11,7 @@ function DateTime(props) {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DateTimePicker
         renderInput={(props) => <TextField {...props} />}
-        label="DateTimePicker"
+        label={props.label}
         value={value}
         onChange={(newValue) => {
           setValue(newValue);
