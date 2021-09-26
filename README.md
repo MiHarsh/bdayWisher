@@ -60,6 +60,7 @@ Upload your message, photos, and audios and get a **secured surprise** for your 
 * Improving frontend.
 * Real time audio recording support.
 * Add more cards, options for users to switch between them.
+* Optimize for Mobile View.
 
 # Gallery
 
