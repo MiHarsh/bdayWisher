@@ -85,6 +85,8 @@ Upload your message, photos, and audios and get a **secured surprise** for your 
 # Contributions:
 Contributions are welcome ❤️. For major changes, please open an issue first to discuss what you would like to change.
 
+**Note** - Remember to create your own firebase project, and replace credentials present in *app.js* file.
+
 To run *main* branch locally 
 ```bash
 $ npm install
