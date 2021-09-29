@@ -9,10 +9,9 @@ function Welcome(props) {
     username: "",
     pin: "",
   });
-  // const [hide, setHide] = useState(false);
+
   const [hide1, setHide1] = useState(true);
   const [hide2, setHide2] = useState(true);
-  const [btn, setBtn] = useState(true);
 
   const [eventCount, setEventCount] = useState(0);
 
@@ -31,8 +30,6 @@ function Welcome(props) {
     setUserData((prev) => {
       return { ...prev, pin: data };
     });
-    setBtn(false);
-    console.log(data);
   }
 
   function cbName(nameUser) {
@@ -70,7 +67,7 @@ function Welcome(props) {
   return (
     <div style={props.style} className="text-css">
       <div style={!hide1 ? { display: "none" } : null}>
-        <EventCount number={eventCount} title="counts" />
+        <EventCount number={eventCount} title="events" />
         <div style={{ fontSize: "32px", width: "800px" }} className="shade">
           <span>
             Are you tired of the so-called oneliner-

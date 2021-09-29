@@ -21,10 +21,10 @@ function EventCount(props) {
           <i className="fa fa-calendar" aria-hidden="true"></i>
         </div>
         <div className="stat-details">
-          <div className="stat-numbers">
+          <div className="stat-numbers shade">
             {curD.padStart(String(props.number).length + 1, "0")}
           </div>
-          <div className="stat-title">{props.title}</div>
+          <div className="stat-title shade">{props.title}</div>
         </div>
       </div>
     </div>
