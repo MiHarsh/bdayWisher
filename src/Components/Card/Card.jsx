@@ -6,8 +6,11 @@ function Card(props) {
   let pths = Object.values(props.userData.photosLink);
 
   function playAudio() {
-    let aud = new Audio(props.userData.AudioLink["file_0"]);
-    aud.play();
+    let aud = document.getElementById("audElement");
+    if (aud.duration === 0 || aud.paused) {
+      aud.src = props.userData.AudioLink["file_0"];
+      aud.play();
+    }
   }
 
   return (
@@ -49,6 +52,9 @@ function Card(props) {
         </div>
       </div>
 
+      <audio id="audElement">
+        <source src={props.userData.AudioLink["file_0"]} />
+      </audio>
       <div className="btn challenge-part-of" onClick={playAudio}>
         PlayMe
       </div>
