@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PinInputUser from "./PinInput";
 
 import BDayName from "./BDayName";
+import EventCount from "./EventCount";
 
 function Welcome(props) {
   const [userData, setUserData] = useState({
@@ -12,6 +13,17 @@ function Welcome(props) {
   const [hide1, setHide1] = useState(true);
   const [hide2, setHide2] = useState(true);
   const [btn, setBtn] = useState(true);
+
+  const [eventCount, setEventCount] = useState(0);
+
+  useEffect(() => {
+    fetch("/getCount")
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        setEventCount(response.count);
+      });
+  }, []);
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -58,6 +70,7 @@ function Welcome(props) {
   return (
     <div style={props.style} className="text-css">
       <div style={!hide1 ? { display: "none" } : null}>
+        <EventCount number={eventCount} title="counts" />
         <div style={{ fontSize: "32px", width: "800px" }} className="shade">
           <span>
             Are you tired of the so-called oneliner-

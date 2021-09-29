@@ -42,12 +42,6 @@ body {
   /* background-image: url("/BACKGROUND.png"); */
   /* font-family: "Londrina Solid", cursive; */
   font-family: "Gluten", cursive;
-
-
-
-  
-
-
 }
 
 .pinInput input {
@@ -378,4 +372,62 @@ article {
   text-align: center;
 }
 
+/* Stats */
 
+.stats-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-weight: 500;
+  margin-bottom: 2em;
+  margin-top: -2em;
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  font-size: 1.3rem;
+}
+
+.stat-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 1em;
+}
+
+.stat-icon {
+  color: #1de9b6;
+  padding-right: 0.6em;
+  font-size: 2.4em;
+}
+
+.stat-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat-numbers {
+  font-size: 2.8em;
+  position: relative;
+  margin-bottom: 0.2rem;
+}
+
+.stat-numbers:after {
+  content: "";
+  background-color: #ff1744;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  left: 0;
+  bottom: -0.05rem;
+}
+
+.stat-title {
+  font-size: 1.35em !important;
+}
+
+.column .stat-wrapper {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+/*  */
