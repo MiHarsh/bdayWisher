@@ -82,7 +82,7 @@ function App() {
               };
             });
             setDisp((prev) => {
-              return { ...prev, timer: false }; // when timer stops
+              return { ...prev, timer: true, pininput: false }; // when timer stops
             });
           } else {
             setUserData(response);
