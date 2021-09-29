@@ -62,7 +62,7 @@ const oneDay = 1000 * 60 * 60 * 24;
 //session middleware
 app.use(
   sessions({
-    secret: "xxxxxxxxxxxxxxxx",
+    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
     saveUninitialized: true,
     cookie: { maxAge: oneDay },
     resave: false,
@@ -72,7 +72,6 @@ app.use(
 // parsing the incoming data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 // cookie parser middleware
 app.use(cookieParser());
@@ -87,9 +86,6 @@ app.post("/save", multer.array("fileInput[]", 12), (req, res) => {
   var files = req.files;
   let fileType = req.files[0].mimetype;
   let file;
-
-  console.log(req.files[0]);
-  console.log(req.file);
 
   if (fileType.includes("image")) {
     // file is image , compress it
@@ -121,7 +117,12 @@ app.post("/saveDate", (req, res) => {
   res.send(req.body);
 });
 
-
+app.get("/retrieve", (req, res) => {
+  var b = sf.refFromURL(
+    "gs://bdaywisher15.appspot.com/users/Screenshot from 2021-02-26 09-56-48.png.jpg"
+  );
+  console.log(b);
+});
 
 app.get("/test", (req, res) => {
   res.send({ response: "Harsh Mishra" });
@@ -183,7 +184,7 @@ app.post("/fetchData", (req, res) => {
   dbRef
     .child("users")
     .child(eventName)
-    .on("value", (snapshot) => {
+    .once("value", (snapshot) => {
       let data = snapshot.val();
       if (data) {
         if (pin === data.pin) {
@@ -213,6 +214,12 @@ app.post("/fetchData", (req, res) => {
 
   // res.send({ message: "no users found" });
   console.log(eventName, pin);
+});
+
+app.get("/getCount", (req, res) => {
+  dbRef.child("users").once("value", (snapshot) => {
+    res.send({ count: Object.keys(snapshot.val()).length });
+  });
 });
 
 app.listen(PORT, () => console.log(`Server Running at port ${PORT}`));
